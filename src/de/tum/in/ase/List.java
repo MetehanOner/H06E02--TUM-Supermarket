@@ -1,7 +1,7 @@
 package de.tum.in.ase;
 
 public class List<T> {
-    private T info;
+    private final T info;
     public List<T> next;
 
     public List(T info) {
