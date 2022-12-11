@@ -2,7 +2,7 @@ package de.tum.in.ase;
 
 public class List<T> {
     private final T info;
-    public List<T> next;
+    private List<T> next;
 
     public List(T info) {
         this(info, null);
