@@ -7,8 +7,19 @@ public class Product {
 
     public Product(String name, double price) {
         //TODO throw an exception
-        this.name = name;
-        this.price = price;
+        if(name==null){
+            throw new IllegalArgumentException();
+        } else {
+            this.name = name;
+        }
+
+        if(price <= 0){
+            throw new IllegalArgumentException();
+        } else {
+            this.price = price;
+        }
+
+
     }
 
     public String getName() {
