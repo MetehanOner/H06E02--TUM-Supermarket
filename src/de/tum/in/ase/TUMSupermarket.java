@@ -6,18 +6,18 @@ import java.util.List;
 
 public class TUMSupermarket {
 
-    private List<Checkout> checkouts;
+    private List<Checkout> checkouts = new ArrayList<>();
 
-    public TUMSupermarket(List<Checkout> checkouts){
 
-        if(checkouts.size() <= 0){
+    public TUMSupermarket(int a){
+
+        if(a <= 0){
+            throw new IllegalArgumentException();
+        } else {
             this.checkouts = new ArrayList<>();
             Checkout checkout = new Checkout();
             checkouts.add(checkout);
-            throw new IllegalArgumentException();
         }
-
-        this.checkouts = checkouts;
 
     }
 
@@ -50,5 +50,9 @@ public class TUMSupermarket {
             c.serveNextCustomer();
         }
 
+    }
+
+    public List<Checkout> getCheckouts() {
+        return checkouts;
     }
 }
