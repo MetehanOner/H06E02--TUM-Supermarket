@@ -2,9 +2,9 @@ package de.tum.in.ase;
 
 public class Checkout {
 
-    protected Queue<Customer> customers;
-    protected Queue<Product> bandBeforeCashier;
-    protected Queue<Product> bandAfterCashier;
+    public Queue<Customer> customers;
+    public Queue<Product> bandBeforeCashier;
+    public Queue<Product> bandAfterCashier;
 
     public Checkout(){
 
