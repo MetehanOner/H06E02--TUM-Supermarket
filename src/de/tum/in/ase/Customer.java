@@ -84,7 +84,7 @@ public class Customer {
 
         Checkout c = supermarket.getCheckoutWithSmallestQueue();
 
-        c.customers.enqueue(this);
+        c.getCustomers().enqueue(this);
 
     }
 
