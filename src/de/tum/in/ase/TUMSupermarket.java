@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TUMSupermarket {
 
-    protected List<Checkout> checkouts;
+    private List<Checkout> checkouts;
 
     public TUMSupermarket(List<Checkout> checkouts){
 
