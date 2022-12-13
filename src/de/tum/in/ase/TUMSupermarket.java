@@ -68,6 +68,7 @@ public class TUMSupermarket {
                 int kiris = stack.size();
                 for(int v=0; v<kiris; v++) {
                     c.getCustomers().enqueue(stack.pop());
+                    c = getCheckoutWithSmallestQueue();
                 }
 
                 continue;
