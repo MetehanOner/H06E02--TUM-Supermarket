@@ -34,10 +34,7 @@ public class Customer {
 
     //TODO implement methods
     public boolean hasMoney(){
-        if(money>0){
-            return true;
-        }
-        return false;
+        return money > 0;
     }
 
     public void addProductToBasket(Product product){
@@ -50,7 +47,7 @@ public class Customer {
 
         int corner = productsInBasket.size();
 
-        for(int i = 0; i < corner; i++){
+        for(int i = 0; i < corner; i++) {
 
             band.enqueue(productsInBasket.pop());
 
@@ -72,7 +69,7 @@ public class Customer {
 
     public void pay(double amount){
 
-        if(amount > money || amount < 0){
+        if(amount > money || amount < 0) {
             throw new UnsupportedOperationException();
         }
 
@@ -82,7 +79,7 @@ public class Customer {
 
     public void goToCheckout(TUMSupermarket supermarket){
 
-        if(supermarket==null){
+        if(supermarket==null) {
             throw new IllegalArgumentException();
         }
 

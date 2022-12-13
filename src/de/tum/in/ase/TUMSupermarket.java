@@ -2,7 +2,9 @@ package de.tum.in.ase;
 
 import java.sql.Array;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.Stack;
 
 public class TUMSupermarket {
 
@@ -44,7 +46,32 @@ public class TUMSupermarket {
         return c;
     }
 
-    public void closeCheckout(int a){
+    public void closeCheckout(int index){
+
+        if(index < 0 || index >= checkouts.length){
+            throw new IllegalArgumentException();
+        }
+
+        Checkout[] neuCheckouts = new Checkout[checkouts.length-1];
+
+        for (int i = 0, k = 0; i < checkouts.length; i++) {
+
+            if (i == index) {
+                Checkout c = getCheckoutWithSmallestQueue();
+                LinkedStack<Customer> stack = new LinkedStack<>();
+
+                for(int p = 0; p < checkouts[i].getCustomers().size(); p++){
+                    stack.push(checkouts[i].getCustomers().dequeue());
+                    c.getCustomers().enqueue(stack.pop());
+                }
+
+                continue;
+            }
+
+            neuCheckouts[k++] = checkouts[i];
+        }
+
+        this.checkouts = neuCheckouts;
 
     }
 
