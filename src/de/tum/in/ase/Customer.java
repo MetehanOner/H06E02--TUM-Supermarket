@@ -62,7 +62,7 @@ public class Customer {
 
         int corner = band.size();
 
-        for(int i = 0; i < band.size(); i++){
+        for(int i = 0; i < corner; i++){
 
             productsInBasket.push(band.dequeue());
 
@@ -123,6 +123,8 @@ public class Customer {
         Checkout c3 = new Checkout();
 
         customer.placeAllProductsOnBand(c1.getBandBeforeCashier());
+        customer.takeAllProductsFromBand(c1.getBandBeforeCashier());
+
 
     }
 }

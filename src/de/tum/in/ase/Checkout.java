@@ -20,7 +20,7 @@ public class Checkout {
 
     public void serveNextCustomer(){
 
-        if(customers.isEmpty()){
+        if(customers.isEmpty()) {
             throw new UnsupportedOperationException();
         }
 
