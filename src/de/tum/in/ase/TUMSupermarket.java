@@ -6,17 +6,21 @@ import java.util.List;
 
 public class TUMSupermarket {
 
-    private List<Checkout> checkouts = new ArrayList<>();
+    private Checkout[] checkouts;
 
 
-    public TUMSupermarket(int a){
+    public TUMSupermarket(int number){
 
-        if(a <= 0){
+        if(number <= 0){
             throw new IllegalArgumentException();
         } else {
-            this.checkouts = new ArrayList<>();
-            Checkout checkout = new Checkout();
-            checkouts.add(checkout);
+            this.checkouts = new Checkout[number];
+            for(int i = 0; i < number; i++){
+
+                Checkout c = new Checkout();
+                checkouts[i] = c;
+
+            }
         }
 
     }
@@ -25,12 +29,12 @@ public class TUMSupermarket {
 
         Checkout c = new Checkout();
 
-        for(int x = 0; x < checkouts.size(); x++){
+        for(int x = 0; x < checkouts.length; x++){
 
-            for (int i=0; i < checkouts.size() - x - 1 ; i++) {
-                if (checkouts.get(i).customerQueueLength() > checkouts.get(i+1).customerQueueLength())
+            for (int i=0; i < checkouts.length - x - 1 ; i++) {
+                if (checkouts[i].customerQueueLength() > checkouts[i+1].customerQueueLength())
                 {
-                    c = checkouts.get(i+1);
+                    c = checkouts[i+1];
                     //cheapPhone = getPhoneList().get(i);
                     //getPhoneList().set(i, getPhoneList().get(i+1));
                     //getPhoneList().set(i+1, cheapPhone);
@@ -52,7 +56,7 @@ public class TUMSupermarket {
 
     }
 
-    public List<Checkout> getCheckouts() {
+    public Checkout[] getCheckouts() {
         return checkouts;
     }
 }
