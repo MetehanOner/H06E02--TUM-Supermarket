@@ -100,28 +100,4 @@ public class Customer {
         return productsInBasket;
     }
 
-    public static void main(String[] args) {
-        Product p1 = new Product("yağ", 1000);
-        Product p2 = new Product("yağ", 100);
-        Product p3 = new Product("yağ", 20);
-        Product p4 = new Product("yağ", 50);
-        Product p5 = new Product("yağ", 60);
-
-        Customer customer = new Customer("mete", 2000);
-
-        customer.addProductToBasket(p1);
-        customer.addProductToBasket(p2);
-        customer.addProductToBasket(p3);
-        customer.addProductToBasket(p4);
-        customer.addProductToBasket(p5);
-
-        Checkout c1 = new Checkout();
-        Checkout c2 = new Checkout();
-        Checkout c3 = new Checkout();
-
-        customer.placeAllProductsOnBand(c1.getBandBeforeCashier());
-        customer.takeAllProductsFromBand(c1.getBandBeforeCashier());
-
-
-    }
 }

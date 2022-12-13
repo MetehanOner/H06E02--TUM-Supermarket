@@ -31,9 +31,9 @@ public class TUMSupermarket {
 
         Checkout c = new Checkout();
 
-        for(int x = 0; x < checkouts.length; x++){
+        for(int i = 0; i < checkouts.length-1; i++){
 
-            for (int i=0; i < checkouts.length - x - 1 ; i++) {
+
                 if (checkouts[i].customerQueueLength() > checkouts[i+1].customerQueueLength())
                 {
                     c = checkouts[i+1];
@@ -41,7 +41,7 @@ public class TUMSupermarket {
                     //getPhoneList().set(i, getPhoneList().get(i+1));
                     //getPhoneList().set(i+1, cheapPhone);
                 }
-            }
+
         }
         return c;
     }
@@ -59,9 +59,13 @@ public class TUMSupermarket {
             if (i == index) {
                 Checkout c = getCheckoutWithSmallestQueue();
                 LinkedStack<Customer> stack = new LinkedStack<>();
-
-                for(int p = 0; p < checkouts[i].getCustomers().size(); p++){
+                int kalas = checkouts[i].getCustomers().size();
+                for(int p = 0; p < kalas; p++){
                     stack.push(checkouts[i].getCustomers().dequeue());
+                }
+                int kiris = stack.size();
+
+                for(int v=0; v<kiris; v++){
                     c.getCustomers().enqueue(stack.pop());
                 }
 
@@ -86,4 +90,5 @@ public class TUMSupermarket {
     public Checkout[] getCheckouts() {
         return checkouts;
     }
+
 }
