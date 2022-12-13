@@ -48,7 +48,7 @@ public class TUMSupermarket {
 
     public void closeCheckout(int index){
 
-        if(index < 0 || index >= checkouts.length){
+        if(index < 0 || index >= checkouts.length) {
             throw new IllegalArgumentException();
         }
 
@@ -59,13 +59,14 @@ public class TUMSupermarket {
             if (i == index) {
                 Checkout c = getCheckoutWithSmallestQueue();
                 LinkedStack<Customer> stack = new LinkedStack<>();
+
                 int kalas = checkouts[i].getCustomers().size();
                 for(int p = 0; p < kalas; p++){
                     stack.push(checkouts[i].getCustomers().dequeue());
                 }
-                int kiris = stack.size();
 
-                for(int v=0; v<kiris; v++){
+                int kiris = stack.size();
+                for(int v=0; v<kiris; v++) {
                     c.getCustomers().enqueue(stack.pop());
                 }
 
