@@ -59,7 +59,7 @@ public class Customer {
 
         int corner = band.size();
 
-        for(int i = 0; i < corner; i++){
+        for(int i = 0; i < corner; i++) {
 
             productsInBasket.push(band.dequeue());
 

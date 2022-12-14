@@ -6,7 +6,7 @@ public class Checkout {
     private Queue<Product> bandBeforeCashier;
     private Queue<Product> bandAfterCashier;
 
-    public Checkout(){
+    public Checkout() {
 
         customers = new LinkedQueue<>();
         bandBeforeCashier = new LinkedQueue<>();
@@ -14,7 +14,7 @@ public class Checkout {
 
     }
 
-    public int customerQueueLength(){
+    public int customerQueueLength() {
         return customers.size();
     }
 

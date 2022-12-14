@@ -46,31 +46,23 @@ public class TUMSupermarket {
         return c;
     }
 
-    public void closeCheckout(int index){
+    public void closeCheckout(int index) {
 
         if(index < 0 || index >= checkouts.length) {
             throw new IllegalArgumentException();
         }
 
         Checkout[] neuCheckouts = new Checkout[checkouts.length-1];
+        LinkedStack<Customer> stack = new LinkedStack<>();
 
         for (int i = 0, k = 0; i < checkouts.length; i++) {
 
             if (i == index) {
-                Checkout c = getCheckoutWithSmallestQueue();
-                LinkedStack<Customer> stack = new LinkedStack<>();
 
                 int kalas = checkouts[i].getCustomers().size();
-                for(int p = 0; p < kalas; p++){
+                for(int p = 0; p < kalas; p++) {
                     stack.push(checkouts[i].getCustomers().dequeue());
                 }
-
-                int kiris = stack.size();
-                for(int v=0; v<kiris; v++) {
-                    c.getCustomers().enqueue(stack.pop());
-                    c = getCheckoutWithSmallestQueue();
-                }
-
                 continue;
             }
 
@@ -79,9 +71,15 @@ public class TUMSupermarket {
 
         this.checkouts = neuCheckouts;
 
+        int kiris = stack.size();
+        for(int v=0; v<kiris; v++) {
+            Checkout c = getCheckoutWithSmallestQueue();
+            c.getCustomers().enqueue(stack.pop());
+        }
+
     }
 
-    public void serveCustomers(){
+    public void serveCustomers() {
 
         for (Checkout c: checkouts) {
             c.serveNextCustomer();
